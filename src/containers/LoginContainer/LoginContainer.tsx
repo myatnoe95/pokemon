@@ -15,7 +15,7 @@ const LoginContainer = () => {
 	const [validPassword, setValidPassword] = useState(false);
 
 	const goLogin = () => {
-		if (email && password === '123') {
+		if (email && password === 'poke_user') {
 			login();
 		}
 	};
