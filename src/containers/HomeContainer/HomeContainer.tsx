@@ -47,12 +47,15 @@ const HomeContainer = () => {
 	}, [loading, page]);
 
 	useEffect(() => {
-		products &&
+		if (products && products.length > 0) {
 			products.map(product => {
 				const price = product.cardmarket.prices['averageSellPrice'];
 				const itemTotalPrice = price * 1;
 				setTotalPrice(totalPrice + itemTotalPrice);
 			});
+		} else {
+			setTotalPrice(0);
+		}
 	}, [products]);
 
 	const getCurrentPageData = () => {
@@ -101,8 +104,9 @@ const HomeContainer = () => {
 
 	const handleClearData = () => {
 		setProducts([]);
-		setTotalPrice(0);
 	};
+
+	console.log('Total Price::', totalPrice);
 
 	const handlePay = () => {
 		setProducts([]);
@@ -192,7 +196,7 @@ const HomeContainer = () => {
 													</Text>
 												</View>
 
-												<View style={styles.ProductPriceView}>
+												<View style={styles.productPriceView}>
 													<Text>1</Text>
 													<Text style={styles.price}>price</Text>
 													<Text style={styles.salePrice}>${product.cardmarket.prices['averageSellPrice']}</Text>
