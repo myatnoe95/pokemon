@@ -1,4 +1,4 @@
 # pokemon
 
-email can be use any. 
-password is set to "poke_user" to enter. 
+Email Value can be use any. 
+Password Value is set to "poke_user" to enter. 
